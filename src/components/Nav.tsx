@@ -10,7 +10,6 @@ type NavItem = {
 const HOME_ITEMS: NavItem[] = [
   { label: 'Home', href: '/#top', id: 'top' },
   { label: 'Features', href: '/#features', id: 'features' },
-  { label: 'Contact', href: '/#contact', id: 'contact' },
   { label: 'Privacy', href: '/privacypolicy' },
 ];
 
@@ -51,7 +50,7 @@ export default function Nav({
     <nav className="sticky top-0 z-50 border-b border-neutral-200/80 bg-white/98 backdrop-blur-xl safe-area-top">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-3.5 sm:py-4 sm:px-6 md:px-10">
         <a href="/" className="flex items-center gap-2 transition-opacity hover:opacity-80 active:opacity-70">
-          <img src="/fezer-logo-transparent-blue.png" alt="Fezer" className="h-7 w-7 sm:h-8 sm:w-8" />
+          <img src="/fezer-app-icon.png" alt="Fezer" className="h-7 w-7 sm:h-8 sm:w-8 rounded-lg" />
           <span className="text-base font-semibold tracking-tight text-neutral-900">Fezer</span>
         </a>
 

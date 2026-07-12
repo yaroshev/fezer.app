@@ -5,45 +5,22 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# Ensure Git LFS files are properly handled
 [build.processing]
   skip_processing = false
 
 [build.processing.html]
   pretty_urls = true
 
-# Forms: android-research = Android beta request form (form research documentation)
-# Explicitly tell Netlify to use Git LFS
 [git]
-  lfs = true 
+  lfs = true
 
-[[headers]]
-  for = "/.well-known/apple-app-site-association"
-  [headers.values]
-    Content-Type = "application/json"
-    Cache-Control = "public, max-age=300"
-
-[[redirects]]
-  from = "/invite/*"
-  to = "/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/tasks/*"
-  to = "/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/scan"
-  to = "/index.html"
-  status = 200
-
+# SPA routes
 [[redirects]]
   from = "/privacypolicy"
   to = "/index.html"
   status = 200
 
 [[redirects]]
-  from = "/delete-account"
+  from = "/privacy"
   to = "/index.html"
   status = 200

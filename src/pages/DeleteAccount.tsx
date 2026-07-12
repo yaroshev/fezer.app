@@ -15,11 +15,6 @@ function DeleteAccount() {
     e.preventDefault();
     if (!email.trim() || !confirmed) return;
 
-    const subject = encodeURIComponent('Account Deletion Request');
-    const body = encodeURIComponent(
-      `I would like to request deletion of my Fezer account.\n\nEmail: ${email.trim()}\n\n${reason.trim() ? `Reason (optional): ${reason.trim()}\n\n` : ''}Please process this request and confirm when my account and associated data have been removed.`
-    );
-    window.location.href = `mailto:hello@fezer.app?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
@@ -38,10 +33,10 @@ function DeleteAccount() {
 
         {submitted ? (
           <div className="mt-10 rounded-xl border border-neutral-200 bg-neutral-50 p-6">
-            <p className="text-neutral-800 font-medium">Check your email client</p>
+            <p className="text-neutral-800 font-medium">Request received</p>
             <p className="mt-2 text-neutral-600 text-sm leading-relaxed">
-              A draft email has been prepared. Please review and send it from your email app to complete your
-              deletion request. We will respond and process your request as soon as possible.
+              Fezer stores all data on your device. To remove it, delete individual items in the app or
+              uninstall Fezer from your device.
             </p>
             <a
               href="/privacypolicy"
@@ -110,11 +105,10 @@ function DeleteAccount() {
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-10 py-8 sm:py-10">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div className="flex items-center gap-3">
-              <img src="/fezer-logo-transparent-blue.png" alt="Fezer logo" className="w-6 h-6" />
+              <img src="/fezer-app-icon.png" alt="Fezer logo" className="w-6 h-6 rounded-lg" />
               <span className="text-sm text-neutral-700">Fezer</span>
             </div>
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-x-2 text-sm text-neutral-700">
-              <a href="mailto:hello@fezer.app" className="hover:opacity-70 transition-opacity">hello@fezer.app</a>
               <div className="flex flex-wrap items-center gap-2">
                 <a href="/privacypolicy" className="inline-flex items-center justify-center rounded-full border border-neutral-200 bg-white text-black px-4 py-2.5 text-sm font-medium hover:bg-black/5 transition-colors min-h-[44px] sm:min-h-0 sm:py-2">Privacy Policy</a>
                 <a href="/terms" className="hover:opacity-70 transition-opacity py-2 sm:py-0">Terms</a>

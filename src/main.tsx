@@ -9,4 +9,4 @@ createRoot(document.getElementById('root')!).render(
   </StrictMode>
 );
 
-document.title = 'Fezer - Field Operations OS';
+document.title = 'Fezer — Day Planner, Time Tracker & Goals for iPhone';

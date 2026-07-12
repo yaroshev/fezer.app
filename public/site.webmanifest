@@ -1,17 +1,13 @@
 {
-  "name": "Fezer (Beta)",
+  "name": "Fezer",
   "short_name": "Fezer",
-  "description": "Fezer (Beta) — Field operations OS for construction. Time, tasks, tools, supplies, teams, and reports. iOS and Android.",
+  "description": "Fezer — a personal day planner, time tracker, and goal tracker for iPhone and iPad. Private by design.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
   "icons": [
-    { "src": "/fezer-logo.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "/fezer-logo-black.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+    { "src": "/fezer-app-icon.png", "sizes": "1024x1024", "type": "image/png", "purpose": "any" }
   ]
 }
-
-
-

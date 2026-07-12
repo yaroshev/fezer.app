@@ -40,8 +40,8 @@
     --fezer-hero-mobile: linear-gradient(180deg, #e8f1ff 0%, #f5f9ff 35%, #fafafa 100%);
   }
   .light {
-    --fezer-primary: #9ec7ff; /* swap in light mode */
-    --fezer-accent: #0d2b57;
+    --fezer-primary: #0d2b57;
+    --fezer-accent: #9ec7ff;
   }
 }
 
@@ -340,15 +340,15 @@
 
   /* Phone glow for mobile hero */
   .phone-glow {
-    box-shadow: 0 0 0 1px rgba(13, 43, 87, 0.06),
-                0 24px 48px -12px rgba(13, 43, 87, 0.15),
-                0 0 80px -20px rgba(158, 199, 255, 0.4);
+    box-shadow: 0 0 0 1px rgba(29, 74, 104, 0.06),
+                0 24px 48px -12px rgba(29, 74, 104, 0.15),
+                0 0 80px -20px rgba(159, 232, 230, 0.4);
   }
   @media (max-width: 767px) {
     .phone-glow {
-      box-shadow: 0 0 0 1px rgba(13, 43, 87, 0.04),
-                  0 32px 64px -16px rgba(13, 43, 87, 0.2),
-                  0 0 100px -24px rgba(158, 199, 255, 0.5);
+      box-shadow: 0 0 0 1px rgba(29, 74, 104, 0.04),
+                  0 32px 64px -16px rgba(29, 74, 104, 0.2),
+                  0 0 100px -24px rgba(159, 232, 230, 0.5);
     }
   }
 }
