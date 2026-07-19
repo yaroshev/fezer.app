@@ -3,27 +3,27 @@ import Nav from '../components/Nav';
 
 function PrivacyPolicy() {
   React.useEffect(() => {
-    document.title = 'Fezer — Privacy Policy';
+    document.title = 'Fezer | Privacy Policy';
   }, []);
 
   return (
-    <div className="min-h-screen w-full bg-[#fafafa] text-black">
+    <div className="min-h-screen w-full bg-[#fafafa] text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
       <Nav activePath="/privacypolicy" />
 
       <main className="mx-auto w-full max-w-3xl px-4 sm:px-6 md:px-10 py-10">
-        <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">Privacy Policy</h1>
-        <p className="mt-3 text-neutral-600">Fezer for iOS · Last updated: July 11, 2026</p>
+        <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight dark:text-neutral-100">Privacy Policy</h1>
+        <p className="mt-3 text-neutral-600 dark:text-neutral-400">Fezer for iOS · Last updated: July 11, 2026</p>
 
-        <div className="mt-6 rounded-2xl border border-neutral-200/80 bg-white p-5 sm:p-6">
-          <h2 className="text-base font-semibold text-neutral-900">Summary</h2>
-          <p className="mt-2 text-[15px] leading-relaxed text-neutral-700">
+        <div className="mt-6 rounded-2xl border border-neutral-200/80 bg-white p-5 sm:p-6 dark:border-neutral-800 dark:bg-neutral-900">
+          <h2 className="text-base font-semibold text-neutral-900 dark:text-neutral-100">Summary</h2>
+          <p className="mt-2 text-[15px] leading-relaxed text-neutral-700 dark:text-neutral-300">
             Fezer does not collect, transmit, sell, or share any personal data. The app has no account
             system, no analytics, no advertising, and no tracking. Everything you create in Fezer is
             stored locally on your device and stays there.
           </p>
         </div>
 
-        <div className="mt-8 space-y-8 text-neutral-800">
+        <div className="mt-8 space-y-8 text-neutral-800 dark:text-neutral-200">
           <section>
             <h2 className="text-xl font-semibold">Overview</h2>
             <p className="mt-2 leading-relaxed">
@@ -46,8 +46,8 @@ function PrivacyPolicy() {
           <section>
             <h2 className="text-xl font-semibold">Where Your Content Is Stored</h2>
             <p className="mt-2 leading-relaxed">
-              Everything you create in Fezer — fronts, goals, steps, schedule blocks, checkpoints, time
-              tracking history, notes, and attachments (photos and files) — is stored locally in the
+              Everything you create in Fezer, including fronts, goals, steps, schedule blocks, checkpoints, time
+              tracking history, notes, and attachments (photos and files), is stored locally in the
               app&apos;s private storage on your device. We have no access to it, and it is never uploaded
               to us or anyone else by the app.
             </p>
@@ -75,7 +75,7 @@ function PrivacyPolicy() {
                 <h3 className="font-medium">Photos</h3>
                 <p className="mt-1 leading-relaxed">
                   Fezer uses Apple&apos;s system photo picker to let you attach images. With this picker,
-                  the app never gains access to your photo library — only the specific images you select
+                  the app never gains access to your photo library. Only the specific images you select
                   are copied into the app&apos;s local storage.
                 </p>
               </div>
@@ -134,8 +134,8 @@ function PrivacyPolicy() {
           <section>
             <h2 className="text-xl font-semibold">Changes to This Policy</h2>
             <p className="mt-2 leading-relaxed">
-              If the app&apos;s data practices ever change — for example, if a future version adds optional
-              sync — we will update this policy before those changes take effect and update the
+              If the app&apos;s data practices ever change (for example, if a future version adds optional
+              sync), we will update this policy before those changes take effect and update the
               &quot;Last updated&quot; date above.
             </p>
           </section>
@@ -150,18 +150,18 @@ function PrivacyPolicy() {
         </div>
       </main>
 
-      <footer className="w-full border-t border-neutral-200 bg-white safe-area-bottom">
+      <footer className="w-full border-t border-neutral-200 bg-white safe-area-bottom dark:border-neutral-800 dark:bg-neutral-950">
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-10 py-8 sm:py-10">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div className="flex items-center gap-3">
               <img src="/fezer-app-icon.png" alt="Fezer logo" className="w-6 h-6 rounded-md" />
-              <span className="text-sm text-neutral-700">Fezer</span>
+              <span className="text-sm text-neutral-700 dark:text-neutral-300">Fezer</span>
             </div>
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-neutral-700">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-neutral-700 dark:text-neutral-300">
               <a href="/privacypolicy" className="hover:opacity-70 transition-opacity font-medium">Privacy Policy</a>
             </div>
           </div>
-          <p className="mt-4 text-xs text-neutral-500">© {new Date().getFullYear()} Fezer. All rights reserved.</p>
+          <p className="mt-4 text-xs text-neutral-500 dark:text-neutral-500">© {new Date().getFullYear()} Fezer. All rights reserved.</p>
         </div>
       </footer>
     </div>

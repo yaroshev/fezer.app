@@ -36,7 +36,9 @@ export default function Nav({
             href={item.href}
             onClick={closeMenu}
             className={`nav-link relative py-1 text-sm font-medium transition-colors duration-200 ${
-              active ? 'nav-link-active text-neutral-900' : 'text-neutral-600 hover:text-neutral-900'
+              active
+                ? 'nav-link-active text-neutral-900 dark:text-neutral-100'
+                : 'text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100'
             }`}
           >
             {item.label}
@@ -47,11 +49,11 @@ export default function Nav({
   );
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-neutral-200/80 bg-white/98 backdrop-blur-xl safe-area-top">
+    <nav className="sticky top-0 z-50 border-b border-neutral-200/80 bg-white/98 backdrop-blur-xl safe-area-top dark:border-neutral-800 dark:bg-neutral-950/95">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-3.5 sm:py-4 sm:px-6 md:px-10">
         <a href="/" className="flex items-center gap-2 transition-opacity hover:opacity-80 active:opacity-70">
           <img src="/fezer-app-icon.png" alt="Fezer" className="h-7 w-7 sm:h-8 sm:w-8 rounded-lg" />
-          <span className="text-base font-semibold tracking-tight text-neutral-900">Fezer</span>
+          <span className="text-base font-semibold tracking-tight text-neutral-900 dark:text-neutral-100">Fezer</span>
         </a>
 
         {/* Desktop nav */}
@@ -63,7 +65,7 @@ export default function Nav({
         <button
           type="button"
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden p-3 -mr-2 -my-1 rounded-xl text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 active:bg-neutral-200 transition-colors touch-manipulation"
+          className="md:hidden p-3 -mr-2 -my-1 rounded-xl text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 active:bg-neutral-200 transition-colors touch-manipulation dark:text-neutral-400 dark:hover:text-neutral-100 dark:hover:bg-neutral-800 dark:active:bg-neutral-700"
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={mobileOpen}
         >
@@ -73,7 +75,7 @@ export default function Nav({
 
       {/* Mobile menu: simple dropdown under header, pushes page content down */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-neutral-200 bg-white">
+        <div className="md:hidden border-t border-neutral-200 bg-white dark:border-neutral-800 dark:bg-neutral-950">
           <nav className="mx-auto w-full max-w-7xl px-4 py-2">
             <div className="flex flex-col gap-1">
               {HOME_ITEMS.map((item) => {
@@ -84,7 +86,9 @@ export default function Nav({
                     href={item.href}
                     onClick={closeMenu}
                     className={`block rounded-xl px-3 py-2.5 text-base font-semibold transition-colors ${
-                      active ? 'bg-[#0d2b57] text-white' : 'text-neutral-700 hover:bg-neutral-100'
+                      active
+                        ? 'bg-[#0d2b57] text-white'
+                        : 'text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800'
                     }`}
                   >
                     {item.label}
