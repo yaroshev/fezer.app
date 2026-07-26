@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import Nav from '../components/Nav';
+import SiteFooter from '../components/SiteFooter';
 
 function DeleteAccount() {
   const [email, setEmail] = useState('');
   const [reason, setReason] = useState('');
   const [confirmed, setConfirmed] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-
-  React.useEffect(() => {
-    document.title = 'Fezer | Request Account Deletion';
-  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -101,23 +98,7 @@ function DeleteAccount() {
         )}
       </main>
 
-      <footer className="w-full border-t border-neutral-200 bg-white mt-12 sm:mt-16 safe-area-bottom dark:border-neutral-800 dark:bg-neutral-950">
-        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-10 py-8 sm:py-10">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-            <div className="flex items-center gap-3">
-              <img src="/fezer-app-icon.png" alt="Fezer logo" className="w-6 h-6 rounded-lg" />
-              <span className="text-sm text-neutral-700 dark:text-neutral-300">Fezer</span>
-            </div>
-            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-x-2 text-sm text-neutral-700 dark:text-neutral-300">
-              <div className="flex flex-wrap items-center gap-2">
-                <a href="/privacypolicy" className="inline-flex items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-900 px-4 py-2.5 text-sm font-medium hover:bg-neutral-50 transition-colors min-h-[44px] sm:min-h-0 sm:py-2 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100 dark:hover:bg-neutral-800">Privacy Policy</a>
-                <a href="/terms" className="hover:opacity-70 transition-opacity py-2 sm:py-0">Terms</a>
-              </div>
-            </div>
-          </div>
-          <p className="mt-4 text-xs text-neutral-500">© {new Date().getFullYear()} Fezer. All rights reserved.</p>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

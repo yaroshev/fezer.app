@@ -1,11 +1,7 @@
-import React from 'react';
 import Nav from '../components/Nav';
+import SiteFooter from '../components/SiteFooter';
 
 function PrivacyPolicy() {
-  React.useEffect(() => {
-    document.title = 'Fezer | Privacy Policy';
-  }, []);
-
   return (
     <div className="min-h-screen w-full bg-[#fafafa] text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
       <Nav activePath="/privacypolicy" />
@@ -150,20 +146,7 @@ function PrivacyPolicy() {
         </div>
       </main>
 
-      <footer className="w-full border-t border-neutral-200 bg-white safe-area-bottom dark:border-neutral-800 dark:bg-neutral-950">
-        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-10 py-8 sm:py-10">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-            <div className="flex items-center gap-3">
-              <img src="/fezer-app-icon.png" alt="Fezer logo" className="w-6 h-6 rounded-md" />
-              <span className="text-sm text-neutral-700 dark:text-neutral-300">Fezer</span>
-            </div>
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-neutral-700 dark:text-neutral-300">
-              <a href="/privacypolicy" className="hover:opacity-70 transition-opacity font-medium">Privacy Policy</a>
-            </div>
-          </div>
-          <p className="mt-4 text-xs text-neutral-500 dark:text-neutral-500">© {new Date().getFullYear()} Fezer. All rights reserved.</p>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

@@ -14,13 +14,9 @@
 [git]
   lfs = true
 
-# SPA routes
-[[redirects]]
-  from = "/privacypolicy"
-  to = "/index.html"
-  status = 200
-
+# All pages are prerendered to static HTML at build time, so no SPA
+# rewrites are needed. /privacy is a legacy alias for the policy page.
 [[redirects]]
   from = "/privacy"
-  to = "/index.html"
-  status = 200
+  to = "/privacypolicy"
+  status = 301
