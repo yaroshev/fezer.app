@@ -103,7 +103,7 @@ export default function FeaturePage({ content }: { content: FeaturePageContent }
           <div className="rounded-3xl bg-[#0d2b57] p-8 sm:p-12 text-center text-white">
             <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Own your day with Fezer</h2>
             <p className="mx-auto mt-3 max-w-xl text-[15px] sm:text-base text-blue-100 leading-relaxed">
-              Free on the App Store. No account, no ads, no tracking — everything stays on your device.
+              Free on the App Store. No account, no ads, no tracking -  everything stays on your device.
             </p>
             <div className="mt-6 flex justify-center">
               <AppStoreButton location={`${content.path}-cta`} className="!bg-white !text-[#0d2b57]" />

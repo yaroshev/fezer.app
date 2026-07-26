@@ -33,12 +33,12 @@ export const FEATURE_PAGES: FeaturePageContent[] = [
   {
     path: '/day-planner-app',
     navLabel: 'Day planner',
-    title: 'Day Planner App for iPhone — Fezer',
+    title: 'Day Planner App for iPhone -  Fezer',
     metaDescription:
       'Plan your day in time blocks, keep deadlines in view and always know what to work on now. Fezer is a private day planner app for iPhone and iPad.',
     h1: 'A day planner built around what you do now',
     intro:
-      'Fezer plans your day as a sequence of time blocks and deadlines, then keeps one commitment in front of you at a time. Not a longer to-do list — a clearer answer to "what should I be doing right now?"',
+      'Fezer plans your day as a sequence of time blocks and deadlines, then keeps one commitment in front of you at a time. Not a longer to-do list -  a clearer answer to "what should I be doing right now?"',
     problem: {
       heading: 'The problem with most day planners',
       paragraphs: [
@@ -76,7 +76,7 @@ export const FEATURE_PAGES: FeaturePageContent[] = [
     useCase: {
       heading: 'Example: a workday in Fezer',
       paragraphs: [
-        'The night before, you block tomorrow: breakfast, two work blocks, a break, and an errand pinned as a deadline. In the morning, Now shows the first block as LIVE and the errand as DUE. When plans shift — they always do — you drag blocks around in Schedule rather than rewriting a list.',
+        'The night before, you block tomorrow: breakfast, two work blocks, a break, and an errand pinned as a deadline. In the morning, Now shows the first block as LIVE and the errand as DUE. When plans shift -  they always do -  you drag blocks around in Schedule rather than rewriting a list.',
         'At the end of the day, Compare shows that "Work Block 1" started 25 minutes late and the break stretched. Next day\u2019s plan gets more realistic, and the plan keeps being something you trust.',
       ],
     },
@@ -97,16 +97,16 @@ export const FEATURE_PAGES: FeaturePageContent[] = [
   {
     path: '/time-blocking-app',
     navLabel: 'Time blocking',
-    title: 'Time-Blocking Planner for iPhone — Fezer',
+    title: 'Time-Blocking Planner for iPhone -  Fezer',
     metaDescription:
       'Fezer is a time-blocking planner for iPhone and iPad. Build your day from time blocks, repeat your routines and compare the plan with what actually happened.',
     h1: 'Time blocking that survives contact with a real day',
     intro:
-      'Time blocking means giving every hour a job before the day starts. Fezer makes the blocks fast to place, easy to repeat and honest at the end of the day — because it also shows what actually happened.',
+      'Time blocking means giving every hour a job before the day starts. Fezer makes the blocks fast to place, easy to repeat and honest at the end of the day -  because it also shows what actually happened.',
     problem: {
       heading: 'Why time blocking usually breaks down',
       paragraphs: [
-        'Time blocking fails for two predictable reasons. First, maintenance: rebuilding the same morning routine block by block every day gets old within a week. Second, drift: the plan says 9:00 deep work, reality says 9:40, and there is no feedback loop to correct for it — so the plan slowly becomes fiction.',
+        'Time blocking fails for two predictable reasons. First, maintenance: rebuilding the same morning routine block by block every day gets old within a week. Second, drift: the plan says 9:00 deep work, reality says 9:40, and there is no feedback loop to correct for it -  so the plan slowly becomes fiction.',
         'Fezer addresses both. Repeating blocks carry your routine forward automatically, and the Compare view confronts the plan with the tracked day so your blocks get more accurate over time.',
       ],
     },
@@ -116,7 +116,7 @@ export const FEATURE_PAGES: FeaturePageContent[] = [
       steps: [
         {
           title: 'Add blocks in Plan mode',
-          body: 'Create a block, give it a name and a time range. Blocks are visual and draggable — reshuffling the afternoon takes seconds.',
+          body: 'Create a block, give it a name and a time range. Blocks are visual and draggable -  reshuffling the afternoon takes seconds.',
         },
         {
           title: 'Put routines on repeat',
@@ -124,7 +124,7 @@ export const FEATURE_PAGES: FeaturePageContent[] = [
         },
         {
           title: 'Block time for your goals',
-          body: 'From any goal, choose Commit and then Work on to turn a step into a scheduled block — optionally repeating. Your goals claim real hours instead of waiting in a backlog.',
+          body: 'From any goal, choose Commit and then Work on to turn a step into a scheduled block -  optionally repeating. Your goals claim real hours instead of waiting in a backlog.',
         },
         {
           title: 'Check the blocks against reality',
@@ -135,18 +135,18 @@ export const FEATURE_PAGES: FeaturePageContent[] = [
     screenshot: {
       src: SCREENSHOTS.timeBlocking,
       alt: 'Fezer time-blocking planner showing scheduled time blocks in the Planned column beside tracked time',
-      caption: 'Planned time blocks beside tracked time — the feedback loop that keeps blocks honest.',
+      caption: 'Planned time blocks beside tracked time -  the feedback loop that keeps blocks honest.',
     },
     useCase: {
       heading: 'Example: protecting deep work',
       paragraphs: [
-        'You set a "Focused work" block from 5:20 to 6:20 every weekday, followed by breakfast and two longer work blocks. Because the blocks repeat, the structure is already there each morning — you only adjust the exceptions.',
+        'You set a "Focused work" block from 5:20 to 6:20 every weekday, followed by breakfast and two longer work blocks. Because the blocks repeat, the structure is already there each morning -  you only adjust the exceptions.',
         'After a week, Compare shows the early block holds up on Tuesdays and Wednesdays but collapses on Fridays. So you move Friday\u2019s deep work to the afternoon. That is the point of time blocking with feedback: the schedule adapts to how you actually work.',
       ],
     },
     capabilities: [
       { title: 'Visual time blocks', desc: 'Draggable blocks on a day timeline, quick to add and rearrange.' },
-      { title: 'Repeating blocks', desc: 'Every Day, Weekdays, Every Week or Every 2 Weeks — routines build themselves.' },
+      { title: 'Repeating blocks', desc: 'Every Day, Weekdays, Every Week or Every 2 Weeks -  routines build themselves.' },
       { title: 'Work on commitments', desc: 'Turn goal steps into scheduled blocks without leaving your goals.' },
       { title: 'Compare mode', desc: 'Planned and tracked columns side by side for every day.' },
       { title: 'Deadline pins', desc: 'Deadlines sit on the same timeline as your blocks.' },
@@ -161,12 +161,12 @@ export const FEATURE_PAGES: FeaturePageContent[] = [
   {
     path: '/time-tracker',
     navLabel: 'Time tracker',
-    title: 'Personal Time Tracker — Fezer',
+    title: 'Personal Time Tracker -  Fezer',
     metaDescription:
       'Track your time with one tap, add checkpoints as you work and see where your day really went. Fezer is a private personal time tracker for iPhone and iPad.',
     h1: 'A personal time tracker, not a surveillance tool',
     intro:
-      'Most time trackers were built for billing clients: timers, categories, exports. Fezer tracks time for one audience — you. One tap to begin, checkpoints along the way, and analytics that show where your time actually went.',
+      'Most time trackers were built for billing clients: timers, categories, exports. Fezer tracks time for one audience -  you. One tap to begin, checkpoints along the way, and analytics that show where your time actually went.',
     problem: {
       heading: 'The problem with tracking every second',
       paragraphs: [
@@ -180,7 +180,7 @@ export const FEATURE_PAGES: FeaturePageContent[] = [
       steps: [
         {
           title: 'Tap Begin',
-          body: 'One big button starts a session. Optionally attach it to a front, a goal or a specific step — or just track and name it later.',
+          body: 'One big button starts a session. Optionally attach it to a front, a goal or a specific step -  or just track and name it later.',
         },
         {
           title: 'Drop checkpoints as you go',
@@ -192,7 +192,7 @@ export const FEATURE_PAGES: FeaturePageContent[] = [
         },
         {
           title: 'Read the results in Analytics',
-          body: 'Analytics breaks tracked time down by front and goal across the day, week, month or year — and Compare shows planned versus actual for any day.',
+          body: 'Analytics breaks tracked time down by front and goal across the day, week, month or year -  and Compare shows planned versus actual for any day.',
         },
       ],
     },
@@ -204,7 +204,7 @@ export const FEATURE_PAGES: FeaturePageContent[] = [
     useCase: {
       heading: 'Example: finding where the day leaks',
       paragraphs: [
-        'You suspect your mornings evaporate but cannot say where. For one week, you tap Begin when you start anything substantial and End when you stop — no categories, no ceremony. When something notable happens mid-session, you Submit a checkpoint.',
+        'You suspect your mornings evaporate but cannot say where. For one week, you tap Begin when you start anything substantial and End when you stop -  no categories, no ceremony. When something notable happens mid-session, you Submit a checkpoint.',
         'By Friday, Analytics shows the story: the "quick email check" after breakfast averages 50 minutes, and transit eats more than either break. You block email into a fixed 20-minute slot and move a reading block onto the commute. Tracking earned its keep in a week, without turning into a second job.',
       ],
     },
@@ -225,7 +225,7 @@ export const FEATURE_PAGES: FeaturePageContent[] = [
   {
     path: '/goal-planner',
     navLabel: 'Goal planner',
-    title: 'Goal Planner and Tracker — Fezer',
+    title: 'Goal Planner and Tracker -  Fezer',
     metaDescription:
       'Organize goals into fronts, break them into steps and commit each step onto your daily schedule. Fezer is a goal planner and tracker for iPhone and iPad.',
     h1: 'A goal planner that ends on your calendar',
@@ -234,7 +234,7 @@ export const FEATURE_PAGES: FeaturePageContent[] = [
     problem: {
       heading: 'Why written goals stall',
       paragraphs: [
-        'Most goals live in a notes app: a tidy list reviewed in January and rediscovered in November. The goal never stalls because it was a bad goal — it stalls because no specific step ever got a specific time.',
+        'Most goals live in a notes app: a tidy list reviewed in January and rediscovered in November. The goal never stalls because it was a bad goal -  it stalls because no specific step ever got a specific time.',
         'A goal planner should force two things: decomposition (what are the concrete steps?) and commitment (when, exactly, does the next step happen?). Fezer builds both into the same flow.',
       ],
     },
@@ -244,7 +244,7 @@ export const FEATURE_PAGES: FeaturePageContent[] = [
       steps: [
         {
           title: 'Create fronts for areas of life',
-          body: 'A front is a life area or theme — Personal Wellbeing, Family, Work. Every goal belongs to a front, so progress is visible per area, not just per task.',
+          body: 'A front is a life area or theme -  Personal Wellbeing, Family, Work. Every goal belongs to a front, so progress is visible per area, not just per task.',
         },
         {
           title: 'Define each goal with a beginning and an end',
@@ -256,20 +256,20 @@ export const FEATURE_PAGES: FeaturePageContent[] = [
         },
         {
           title: 'Commit steps onto the schedule',
-          body: 'From any step, choose Commit: "Complete by" pins a deadline on your day, "Work on" blocks time for it — optionally repeating. This is the moment a goal becomes a plan.',
+          body: 'From any step, choose Commit: "Complete by" pins a deadline on your day, "Work on" blocks time for it -  optionally repeating. This is the moment a goal becomes a plan.',
         },
       ],
     },
     screenshot: {
       src: SCREENSHOTS.goalPlanner,
       alt: 'Fezer goal planner showing goals organized under a Personal Wellbeing front',
-      caption: 'Goals grouped by front — each one decomposes into steps you can schedule.',
+      caption: 'Goals grouped by front -  each one decomposes into steps you can schedule.',
     },
     useCase: {
       heading: 'Example: from "get fit" to Tuesday at 7 AM',
       paragraphs: [
-        'You create a Personal Wellbeing front and add a goal: Consistent Work Out Routine. The end result is written down — three sessions a week, sustained for three months. The steps: choose a gym, plan a starter program, complete the first week, then each following week.',
-        '"Choose a gym" gets a Complete-by pin on Saturday. "Complete the first week" becomes three repeating Work-on blocks at 7 AM. From that point on, the goal is not a wish on a list — it is visible on your schedule, in your Now view, and in your weekly analytics.',
+        'You create a Personal Wellbeing front and add a goal: Consistent Work Out Routine. The end result is written down -  three sessions a week, sustained for three months. The steps: choose a gym, plan a starter program, complete the first week, then each following week.',
+        '"Choose a gym" gets a Complete-by pin on Saturday. "Complete the first week" becomes three repeating Work-on blocks at 7 AM. From that point on, the goal is not a wish on a list -  it is visible on your schedule, in your Now view, and in your weekly analytics.',
       ],
     },
     capabilities: [
@@ -289,17 +289,17 @@ export const FEATURE_PAGES: FeaturePageContent[] = [
   {
     path: '/vision-board-app',
     navLabel: 'Vision board',
-    title: 'Vision Board App for Goals — Fezer',
+    title: 'Vision Board App for Goals -  Fezer',
     metaDescription:
       'Build a digital vision board for every area of your life and connect it to real goals, steps and scheduled time. Fezer is a private vision board app for iPhone.',
     h1: 'A vision board connected to an actual plan',
     intro:
-      'A vision board is only decoration until something links it to action. In Fezer, every board belongs to a front or a goal — the same goals that break into steps and land on your daily schedule.',
+      'A vision board is only decoration until something links it to action. In Fezer, every board belongs to a front or a goal -  the same goals that break into steps and land on your daily schedule.',
     problem: {
       heading: 'The problem with pretty boards',
       paragraphs: [
         'Vision boards usually live in a collage app or on a corkboard: inspiring in week one, invisible by week six. The images never meet the calendar, so the distance between "the life I want" and "what I did today" never shrinks.',
-        'The fix is not a prettier board. It is putting the board inside the system where goals are planned and time is spent — so dreaming, planning and doing share one address.',
+        'The fix is not a prettier board. It is putting the board inside the system where goals are planned and time is spent -  so dreaming, planning and doing share one address.',
       ],
     },
     how: {
@@ -312,7 +312,7 @@ export const FEATURE_PAGES: FeaturePageContent[] = [
         },
         {
           title: 'Shift the lens',
-          body: 'Focus lenses — Dream, Plan, Remember or All — change what the board emphasizes, from pure aspiration to concrete intention to reflection on how far you have come.',
+          body: 'Focus lenses -  Dream, Plan, Remember or All -  change what the board emphasizes, from pure aspiration to concrete intention to reflection on how far you have come.',
         },
         {
           title: 'Scope boards to fronts or goals',
@@ -327,17 +327,17 @@ export const FEATURE_PAGES: FeaturePageContent[] = [
     screenshot: {
       src: SCREENSHOTS.visionBoard,
       alt: 'Fezer vision board with Want and Need pins including fitness, home and car goals',
-      caption: 'Want and Need pins on a front\u2019s vision board — one tab away from goals and schedule.',
+      caption: 'Want and Need pins on a front\u2019s vision board -  one tab away from goals and schedule.',
     },
     useCase: {
       heading: 'Example: a wellbeing front with a vision',
       paragraphs: [
         'Your Personal Wellbeing front has goals for sleep, diet and a workout routine. Its vision board carries the reasons: a Need pin for a strong, healthy body; Want pins for the milestones that make the discipline feel worth it.',
-        'During a weekly review, you open the board in the Remember lens and add a Reflection pin about the first full week of workouts. The board stops being a poster and becomes a record — evidence that the daily blocks are moving you somewhere.',
+        'During a weekly review, you open the board in the Remember lens and add a Reflection pin about the first full week of workouts. The board stops being a poster and becomes a record -  evidence that the daily blocks are moving you somewhere.',
       ],
     },
     capabilities: [
-      { title: 'Typed pins', desc: 'Want, Need, Idea, Thought and Reflection — intent is part of every pin.' },
+      { title: 'Typed pins', desc: 'Want, Need, Idea, Thought and Reflection -  intent is part of every pin.' },
       { title: 'Focus lenses', desc: 'Dream, Plan, Remember or All shift what the board emphasizes.' },
       { title: 'Boards per front or goal', desc: 'Vision scoped to the area of life or the specific goal it serves.' },
       { title: 'Images and text', desc: 'Freeform boards with photos, captions and notes.' },
@@ -353,7 +353,7 @@ export const FEATURE_PAGES: FeaturePageContent[] = [
   {
     path: '/weekly-planner',
     navLabel: 'Weekly planner',
-    title: 'Weekly Planner App — Fezer',
+    title: 'Weekly Planner App -  Fezer',
     metaDescription:
       'Plan your week with repeating time blocks, review it with weekly analytics and compare your plan with reality. Fezer is a weekly planner app for iPhone and iPad.',
     h1: 'Plan the week once, correct it with evidence',
@@ -362,7 +362,7 @@ export const FEATURE_PAGES: FeaturePageContent[] = [
     problem: {
       heading: 'Why weeks fill themselves',
       paragraphs: [
-        'Without a weekly structure, each day gets planned in the morning under pressure, and the urgent beats the important seven days in a row. Weekly reviews are prescribed as the cure, but most reviews run on memory — and memory is a flattering historian.',
+        'Without a weekly structure, each day gets planned in the morning under pressure, and the urgent beats the important seven days in a row. Weekly reviews are prescribed as the cure, but most reviews run on memory -  and memory is a flattering historian.',
         'A weekly planner needs two halves: a repeatable structure that carries your intentions across the week, and an honest record to review at the end of it. Fezer supplies both from the same data.',
       ],
     },
@@ -372,7 +372,7 @@ export const FEATURE_PAGES: FeaturePageContent[] = [
       steps: [
         {
           title: 'Build the skeleton with repeating blocks',
-          body: 'Blocks repeating on Weekdays, Every Week or Every 2 Weeks form the standing structure of your week — workouts, deep work, family time — without re-planning each morning.',
+          body: 'Blocks repeating on Weekdays, Every Week or Every 2 Weeks form the standing structure of your week -  workouts, deep work, family time -  without re-planning each morning.',
         },
         {
           title: 'Commit goal steps across the week',
@@ -391,13 +391,13 @@ export const FEATURE_PAGES: FeaturePageContent[] = [
     screenshot: {
       src: SCREENSHOTS.timeBlocking,
       alt: 'Fezer weekly planner showing a day of the week with planned and tracked time side by side',
-      caption: 'Each day of the week carries its plan and its record — the raw material of a real weekly review.',
+      caption: 'Each day of the week carries its plan and its record -  the raw material of a real weekly review.',
     },
     useCase: {
       heading: 'Example: a Sunday reset that takes ten minutes',
       paragraphs: [
-        'Sunday evening, you open Analytics on the Week range. The compare view shows the plan-versus-reality picture: work absorbed its blocks and then some, while the Family front got half its planned hours — mostly lost to a Thursday that went sideways.',
-        'The correction takes two edits: the Thursday work block shrinks, and a repeating family block moves to a slot that survived every week so far. No journaling ritual, no spreadsheet — the week critiques itself, and the plan absorbs the lesson.',
+        'Sunday evening, you open Analytics on the Week range. The compare view shows the plan-versus-reality picture: work absorbed its blocks and then some, while the Family front got half its planned hours -  mostly lost to a Thursday that went sideways.',
+        'The correction takes two edits: the Thursday work block shrinks, and a repeating family block moves to a slot that survived every week so far. No journaling ritual, no spreadsheet -  the week critiques itself, and the plan absorbs the lesson.',
       ],
     },
     capabilities: [

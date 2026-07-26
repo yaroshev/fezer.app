@@ -96,7 +96,7 @@ function featurePageJsonLd(path: string, title: string, description: string) {
 export const ROUTES_META: RouteMeta[] = [
   {
     path: '/',
-    title: 'Fezer — Day Planner, Time Tracker & Goal Planner App',
+    title: 'Fezer -  Day Planner, Time Tracker & Goal Planner App',
     description:
       'Fezer is a private day planner, time tracker, goal planner and vision board app. Plan with time blocks, track where your time goes and move your goals forward.',
     robots: 'index, follow',
@@ -116,7 +116,7 @@ export const ROUTES_META: RouteMeta[] = [
   })),
   {
     path: '/privacypolicy',
-    title: 'Privacy Policy — Fezer',
+    title: 'Privacy Policy -  Fezer',
     description:
       'How Fezer handles your data: no accounts, no analytics, no tracking. Everything you create in the app stays on your device.',
     robots: 'index, follow',
@@ -124,7 +124,7 @@ export const ROUTES_META: RouteMeta[] = [
   },
   {
     path: '/delete-account',
-    title: 'Delete Your Data — Fezer',
+    title: 'Delete Your Data -  Fezer',
     description:
       'How to delete your Fezer data. Fezer stores everything on your device, so removing the app removes all of your data.',
     robots: 'noindex, follow',
@@ -132,7 +132,7 @@ export const ROUTES_META: RouteMeta[] = [
   },
   {
     path: '/404',
-    title: 'Page Not Found — Fezer',
+    title: 'Page Not Found -  Fezer',
     description: 'The page you are looking for does not exist.',
     robots: 'noindex, follow',
     indexable: false,

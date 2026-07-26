@@ -51,7 +51,7 @@ const CATEGORY_SECTIONS: {
     id: 'plan',
     heading: 'Plan your day with time blocks',
     paragraphs: [
-      'Fezer\u2019s Schedule turns your day into a timeline of time blocks and deadline pins. Routines repeat automatically — every day, weekdays or weekly — so the structure of a good day is already in place when you wake up.',
+      'Fezer\u2019s Schedule turns your day into a timeline of time blocks and deadline pins. Routines repeat automatically -  every day, weekdays or weekly -  so the structure of a good day is already in place when you wake up.',
       'The Now view then keeps a single commitment in front of you: what is live, what comes next and what is due.',
     ],
     links: [
@@ -80,7 +80,7 @@ const CATEGORY_SECTIONS: {
     id: 'goals',
     heading: 'Turn goals into scheduled steps',
     paragraphs: [
-      'Goals in Fezer are organized into fronts — the areas of your life — and broken into ordered steps. Each step can be committed onto your schedule: pinned as a deadline or blocked as time to work on it.',
+      'Goals in Fezer are organized into fronts -  the areas of your life -  and broken into ordered steps. Each step can be committed onto your schedule: pinned as a deadline or blocked as time to work on it.',
       'That commit is the difference between a goal you wrote down and a goal that shows up in your Tuesday.',
     ],
     links: [{ href: '/goal-planner', label: 'Create a goal plan' }],
@@ -93,7 +93,7 @@ const CATEGORY_SECTIONS: {
     id: 'vision',
     heading: 'Build a vision for every area of life',
     paragraphs: [
-      'Every front and goal can carry its own vision board — pins for what you want, need, think and reflect on, with lenses for dreaming, planning and remembering.',
+      'Every front and goal can carry its own vision board -  pins for what you want, need, think and reflect on, with lenses for dreaming, planning and remembering.',
       'Because the board lives beside your goals and schedule, vision and execution finally share one place.',
     ],
     links: [{ href: '/vision-board-app', label: 'Build a digital vision board' }],
@@ -106,7 +106,7 @@ const CATEGORY_SECTIONS: {
     id: 'review',
     heading: 'Review, compare and improve',
     paragraphs: [
-      'Compare mode puts the planned day and the tracked day side by side. Analytics rolls the same data up by front and goal across the day, week, month or year — plan versus reality, in numbers.',
+      'Compare mode puts the planned day and the tracked day side by side. Analytics rolls the same data up by front and goal across the day, week, month or year -  plan versus reality, in numbers.',
       'Each week\u2019s plan starts from evidence about the last one. That loop is how days actually get better.',
     ],
     links: [{ href: '/weekly-planner', label: 'Plan and review your week' }],
