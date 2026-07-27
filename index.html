@@ -24,6 +24,15 @@
   </head>
   <body>
     <div id="root"><!--app-html--></div>
+    <!-- Static mirror of the beta-access form (rendered dynamically inside
+         BetaAccessModal) so Netlify's build-time bot can detect it and wire
+         up form submissions, even though the real form only mounts once a
+         visitor opens the modal. Field names must stay in sync. -->
+    <form name="beta-access" data-netlify="true" hidden>
+      <input type="hidden" name="form-name" value="beta-access" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+    </form>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

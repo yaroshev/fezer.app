@@ -2,6 +2,7 @@ import React from 'react';
 import { Zap, Calendar, Target, Timer, PieChart, Paperclip, ShieldCheck } from 'lucide-react';
 import Nav from '../components/Nav';
 import AppStoreButton from '../components/AppStoreButton';
+import BetaAccessButton from '../components/BetaAccessButton';
 import SiteFooter from '../components/SiteFooter';
 import { SCREENSHOTS } from '../seo/constants';
 
@@ -161,7 +162,10 @@ export default function Home() {
               what you do each day.
             </p>
             <div className="mt-8 flex flex-col items-center gap-3">
-              <AppStoreButton location="hero" />
+              <div className="flex flex-row flex-wrap items-center justify-center gap-3">
+                <AppStoreButton location="hero" />
+                <BetaAccessButton location="hero" />
+              </div>
               <span className="text-sm text-neutral-400 dark:text-neutral-500">
                 Free · iPhone &amp; iPad · No account required
               </span>
