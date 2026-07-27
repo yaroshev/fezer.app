@@ -8,7 +8,7 @@ function PrivacyPolicy() {
 
       <main className="mx-auto w-full max-w-3xl px-4 sm:px-6 md:px-10 py-10">
         <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight dark:text-neutral-100">Privacy Policy</h1>
-        <p className="mt-3 text-neutral-600 dark:text-neutral-400">Fezer for iOS · Last updated: July 11, 2026</p>
+        <p className="mt-3 text-neutral-600 dark:text-neutral-400">Fezer · Last updated: July 27, 2026</p>
 
         <div className="mt-6 rounded-2xl border border-neutral-200/80 bg-white p-5 sm:p-6 dark:border-neutral-800 dark:bg-neutral-900">
           <h2 className="text-base font-semibold text-neutral-900 dark:text-neutral-100">Summary</h2>
@@ -121,9 +121,12 @@ function PrivacyPolicy() {
           <section>
             <h2 className="text-xl font-semibold">This Website</h2>
             <p className="mt-2 leading-relaxed">
-              This website is a static informational site. It does not set analytics or advertising
-              cookies. Our hosting provider may process standard technical server logs (such as IP address,
-              browser type, and request time) as necessary to serve and secure the site.
+              This website includes optional feedback and beta-access forms. If you submit one, we receive
+              the information you provide, such as your feedback, name, email address, or an optional image
+              attachment, and use it only to improve Fezer or respond to you. Our hosting provider processes
+              these submissions and may also process standard technical server logs (such as IP address,
+              browser type, and request time) as necessary to operate and secure the site. We do not sell
+              this information or use it for advertising.
             </p>
           </section>
 

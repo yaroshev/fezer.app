@@ -33,6 +33,22 @@
       <input type="text" name="name" />
       <input type="email" name="email" />
     </form>
+    <!-- Static mirror of the footer feedback modal for Netlify form detection. -->
+    <form
+      name="feedback"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      enctype="multipart/form-data"
+      hidden
+    >
+      <input type="hidden" name="form-name" value="feedback" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="category" />
+      <textarea name="message"></textarea>
+      <input type="email" name="email" />
+      <input type="file" name="attachment" />
+      <input type="text" name="page" />
+    </form>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
