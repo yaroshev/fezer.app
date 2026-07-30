@@ -61,10 +61,16 @@ function buildHead(route) {
   return tags.join('\n    ');
 }
 
+// Flat files (`about.html`), not directories (`about/index.html`). With Netlify's
+// pretty_urls enabled, a flat file is served at its extensionless path with a 200,
+// so /time-blocking-app resolves directly. A directory would instead make Netlify
+// 301 /time-blocking-app -> /time-blocking-app/, which conflicts with the
+// slash-less canonical and sitemap entries below and reads to Googlebot as a
+// redirect error. Keep this in sync with the URLs built in buildHead/sitemap.
 function outputPathFor(routePath) {
   if (routePath === '/') return path.join(distDir, 'index.html');
   if (routePath === '/404') return path.join(distDir, '404.html'); // Netlify custom 404 page
-  return path.join(distDir, routePath.slice(1), 'index.html');
+  return path.join(distDir, `${routePath.slice(1)}.html`);
 }
 
 for (const route of ROUTES_META) {
