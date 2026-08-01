@@ -1,4 +1,5 @@
 import { FEATURE_PAGES } from '../content/features';
+import { COMPARISON_PAGES } from '../content/comparisons';
 import { APP_STORE_URL, SITE_URL, SCREENSHOTS } from './constants';
 
 export type RouteMeta = {
@@ -8,8 +9,21 @@ export type RouteMeta = {
   robots: string;
   /** Included in sitemap.xml generation and OG url/canonical. */
   indexable: boolean;
+  /**
+   * Filename (without extension) of the pre-generated 1200x630 card in
+   * /public/og. Cards are committed to the repo; regenerate with `npm run og`.
+   */
+  ogSlug?: string;
   jsonLd?: object;
 };
+
+/** Social cards are 1200x630 so they render as large previews, not thumbnails. */
+export const OG_IMAGE_WIDTH = 1200;
+export const OG_IMAGE_HEIGHT = 630;
+
+export function ogImageUrl(slug?: string) {
+  return `${SITE_URL}/og/${slug ?? 'default'}.png`;
+}
 
 const ORGANIZATION = {
   '@type': 'Organization',
@@ -93,6 +107,52 @@ function featurePageJsonLd(path: string, title: string, description: string) {
   };
 }
 
+/**
+ * Comparison pages get the same graph plus a FAQPage node. The questions and
+ * answers must match the visible copy on the page -- Google requires the marked-up
+ * content to be present on the page itself, and mismatches risk a manual action.
+ */
+function comparisonPageJsonLd(
+  path: string,
+  title: string,
+  description: string,
+  faq: { q: string; a: string }[]
+) {
+  const url = `${SITE_URL}${path}`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      ORGANIZATION,
+      WEBSITE,
+      {
+        '@type': 'WebPage',
+        '@id': url,
+        url,
+        name: title,
+        description,
+        isPartOf: { '@id': `${SITE_URL}/#website` },
+        about: { '@id': `${SITE_URL}/#app` },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Fezer', item: `${SITE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: title, item: url },
+        ],
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': `${url}#faq`,
+        mainEntity: faq.map((item) => ({
+          '@type': 'Question',
+          name: item.q,
+          acceptedAnswer: { '@type': 'Answer', text: item.a },
+        })),
+      },
+    ],
+  };
+}
+
 export const ROUTES_META: RouteMeta[] = [
   {
     path: '/',
@@ -101,6 +161,7 @@ export const ROUTES_META: RouteMeta[] = [
       'Fezer is a private day planner, time tracker, goal planner and vision board app. Plan with time blocks, track where your time goes and move your goals forward.',
     robots: 'index, follow',
     indexable: true,
+    ogSlug: 'default',
     jsonLd: {
       '@context': 'https://schema.org',
       '@graph': [ORGANIZATION, WEBSITE, SOFTWARE_APPLICATION],
@@ -112,7 +173,18 @@ export const ROUTES_META: RouteMeta[] = [
     description: page.metaDescription,
     robots: 'index, follow',
     indexable: true,
+    // Feature page slugs match their card filenames in /public/og.
+    ogSlug: page.path.slice(1),
     jsonLd: featurePageJsonLd(page.path, page.title, page.metaDescription),
+  })),
+  ...COMPARISON_PAGES.map((page) => ({
+    path: page.path,
+    title: page.title,
+    description: page.metaDescription,
+    robots: 'index, follow',
+    indexable: true,
+    ogSlug: page.ogSlug,
+    jsonLd: comparisonPageJsonLd(page.path, page.title, page.metaDescription, page.faq),
   })),
   {
     path: '/privacypolicy',

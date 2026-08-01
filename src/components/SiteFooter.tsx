@@ -1,6 +1,7 @@
 import React from 'react';
 import { MessageSquare } from 'lucide-react';
 import { FEATURE_PAGES } from '../content/features';
+import { COMPARISON_PAGES } from '../content/comparisons';
 import { APP_STORE_URL, trackStoreClick } from '../seo/constants';
 import FeedbackModal from './FeedbackModal';
 
@@ -51,7 +52,7 @@ export default function SiteFooter() {
               </a>
             </div>
 
-            <div className="grid grid-cols-2 gap-x-8 gap-y-8 sm:grid-cols-4 lg:gap-x-10">
+            <div className="grid grid-cols-2 gap-x-8 gap-y-8 sm:grid-cols-3 lg:grid-cols-5 lg:gap-x-10">
               <div>
                 <h2 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">Explore Fezer</h2>
                 <ul className="mt-3 space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
@@ -68,6 +69,18 @@ export default function SiteFooter() {
                 <h2 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">Go further</h2>
                 <ul className="mt-3 space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
                   {FEATURE_PAGES.slice(3).map((page) => (
+                    <li key={page.path}>
+                      <a href={page.path} className="hover:text-neutral-900 transition-colors dark:hover:text-neutral-100">
+                        {page.navLabel}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h2 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">Compare</h2>
+                <ul className="mt-3 space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
+                  {COMPARISON_PAGES.map((page) => (
                     <li key={page.path}>
                       <a href={page.path} className="hover:text-neutral-900 transition-colors dark:hover:text-neutral-100">
                         {page.navLabel}

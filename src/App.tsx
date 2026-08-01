@@ -2,8 +2,10 @@ import Home from './pages/Home';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import DeleteAccount from './pages/DeleteAccount';
 import FeaturePage from './pages/FeaturePage';
+import ComparisonPage from './pages/ComparisonPage';
 import NotFound from './pages/NotFound';
 import { FEATURE_PAGES } from './content/features';
+import { COMPARISON_PAGES } from './content/comparisons';
 
 function App({ path }: { path: string }) {
   const normalized = path.replace(/\/+$/, '') || '/';
@@ -14,6 +16,9 @@ function App({ path }: { path: string }) {
 
   const feature = FEATURE_PAGES.find((page) => page.path === normalized);
   if (feature) return <FeaturePage content={feature} />;
+
+  const comparison = COMPARISON_PAGES.find((page) => page.path === normalized);
+  if (comparison) return <ComparisonPage content={comparison} />;
 
   return <NotFound />;
 }

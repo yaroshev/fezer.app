@@ -8,9 +8,15 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const distDir = path.join(root, 'dist');
 
-const { render, ROUTES_META, APP_STORE_ID, SITE_URL } = await import(
-  path.join(root, 'dist-server/entry-server.js')
-);
+const {
+  render,
+  ROUTES_META,
+  APP_STORE_ID,
+  SITE_URL,
+  ogImageUrl,
+  OG_IMAGE_WIDTH,
+  OG_IMAGE_HEIGHT,
+} = await import(path.join(root, 'dist-server/entry-server.js'));
 
 const template = fs.readFileSync(path.join(distDir, 'index.html'), 'utf-8');
 
@@ -26,7 +32,9 @@ function buildHead(route) {
   const url = route.path === '/' ? `${SITE_URL}/` : `${SITE_URL}${route.path}`;
   const title = escapeHtml(route.title);
   const description = escapeHtml(route.description);
-  const image = `${SITE_URL}/fezer-app-icon.png`;
+  // 1200x630 card so links unfurl as a large preview on X, LinkedIn, Slack,
+  // Discord and Facebook instead of a small square icon thumbnail.
+  const image = ogImageUrl(route.ogSlug);
 
   const tags = [
     `<title>${title}</title>`,
@@ -39,16 +47,23 @@ function buildHead(route) {
   }
 
   tags.push(
+    `<meta property="og:site_name" content="Fezer" />`,
     `<meta property="og:title" content="${title}" />`,
     `<meta property="og:description" content="${description}" />`,
     `<meta property="og:type" content="website" />`,
     `<meta property="og:url" content="${url}" />`,
     `<meta property="og:image" content="${image}" />`,
+    `<meta property="og:image:secure_url" content="${image}" />`,
+    `<meta property="og:image:type" content="image/png" />`,
+    `<meta property="og:image:width" content="${OG_IMAGE_WIDTH}" />`,
+    `<meta property="og:image:height" content="${OG_IMAGE_HEIGHT}" />`,
+    `<meta property="og:image:alt" content="${title}" />`,
     `<meta property="og:locale" content="en_US" />`,
-    `<meta name="twitter:card" content="summary" />`,
+    `<meta name="twitter:card" content="summary_large_image" />`,
     `<meta name="twitter:title" content="${title}" />`,
     `<meta name="twitter:description" content="${description}" />`,
     `<meta name="twitter:image" content="${image}" />`,
+    `<meta name="twitter:image:alt" content="${title}" />`,
     `<meta name="apple-itunes-app" content="app-id=${APP_STORE_ID}, app-argument=${url}" />`
   );
 

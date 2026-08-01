@@ -2,7 +2,7 @@ import { StrictMode } from 'react';
 import { renderToString } from 'react-dom/server';
 import App from './App';
 
-export { ROUTES_META } from './seo/meta';
+export { ROUTES_META, ogImageUrl, OG_IMAGE_WIDTH, OG_IMAGE_HEIGHT } from './seo/meta';
 export { APP_STORE_ID, SITE_URL } from './seo/constants';
 
 export function render(path: string): string {
