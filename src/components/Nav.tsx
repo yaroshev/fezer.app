@@ -10,6 +10,8 @@ type NavItem = {
 const HOME_ITEMS: NavItem[] = [
   { label: 'Home', href: '/#top', id: 'top' },
   { label: 'Features', href: '/#features', id: 'features' },
+  { label: 'Guides', href: '/guides' },
+  { label: 'FAQ', href: '/faq' },
   { label: 'Privacy', href: '/privacypolicy' },
 ];
 

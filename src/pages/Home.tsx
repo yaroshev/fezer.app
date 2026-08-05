@@ -4,6 +4,7 @@ import Nav from '../components/Nav';
 import AppStoreButton from '../components/AppStoreButton';
 import BetaAccessButton from '../components/BetaAccessButton';
 import SiteFooter from '../components/SiteFooter';
+import VideoEmbed from '../components/VideoEmbed';
 import { SCREENSHOTS } from '../seo/constants';
 
 const FEATURES = [
@@ -172,6 +173,35 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        {/* Launch video */}
+        <section id="video" className="w-full bg-white dark:bg-neutral-950">
+          <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-10 py-12 sm:py-16 md:py-20">
+            <div className="grid items-center gap-8 lg:grid-cols-[1fr_minmax(280px,340px)] lg:gap-16">
+              <div>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight">
+                  See Fezer in 29 seconds
+                </h2>
+                <p className="mt-4 max-w-2xl text-[15px] sm:text-base md:text-lg text-neutral-600 leading-relaxed dark:text-neutral-400">
+                  Plan the day in time blocks, track what actually happens with one tap, and see
+                  the two side by side. The whole idea of Fezer fits in one short video.
+                </p>
+                <p className="mt-3 max-w-2xl text-[15px] sm:text-base text-neutral-500 leading-relaxed dark:text-neutral-400">
+                  Nothing loads from YouTube until you press play.
+                </p>
+                <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2">
+                  <a
+                    href="/guides"
+                    className="text-[15px] font-medium text-[#0d2b57] hover:opacity-80 transition-opacity dark:text-blue-300"
+                  >
+                    Read the planning guides →
+                  </a>
+                </div>
+              </div>
+              <VideoEmbed location="home" />
+            </div>
+          </div>
+        </section>
 
         {/* Category sections */}
         <div className="w-full bg-white dark:bg-neutral-950">

@@ -2,6 +2,7 @@ import React from 'react';
 import { MessageSquare } from 'lucide-react';
 import { FEATURE_PAGES } from '../content/features';
 import { COMPARISON_PAGES } from '../content/comparisons';
+import { GUIDES } from '../content/guides';
 import { APP_STORE_URL, trackStoreClick } from '../seo/constants';
 import FeedbackModal from './FeedbackModal';
 
@@ -90,23 +91,54 @@ export default function SiteFooter() {
                 </ul>
               </div>
               <div>
-                <h2 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">Support</h2>
-                <a
-                  href="#feedback"
-                  onClick={openFeedback}
-                  className="mt-3 inline-flex items-center gap-1.5 text-left text-sm text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
-                  aria-haspopup="dialog"
-                >
-                  <MessageSquare className="h-4 w-4" aria-hidden="true" />
-                  Send feedback
-                </a>
+                <h2 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">Guides</h2>
+                <ul className="mt-3 space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
+                  {GUIDES.map((guide) => (
+                    <li key={guide.path}>
+                      <a href={guide.path} className="hover:text-neutral-900 transition-colors dark:hover:text-neutral-100">
+                        {guide.navLabel}
+                      </a>
+                    </li>
+                  ))}
+                  <li>
+                    <a href="/guides" className="hover:text-neutral-900 transition-colors dark:hover:text-neutral-100">
+                      All guides
+                    </a>
+                  </li>
+                </ul>
               </div>
               <div>
-                <h2 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">Legal</h2>
+                <h2 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">More</h2>
                 <ul className="mt-3 space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
+                  <li>
+                    <a href="/faq" className="hover:text-neutral-900 transition-colors dark:hover:text-neutral-100">
+                      FAQ
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/whats-new" className="hover:text-neutral-900 transition-colors dark:hover:text-neutral-100">
+                      What’s new
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/press" className="hover:text-neutral-900 transition-colors dark:hover:text-neutral-100">
+                      Press kit
+                    </a>
+                  </li>
                   <li>
                     <a href="/privacypolicy" className="hover:text-neutral-900 transition-colors dark:hover:text-neutral-100">
                       Privacy Policy
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#feedback"
+                      onClick={openFeedback}
+                      className="inline-flex items-center gap-1.5 text-left transition-colors hover:text-neutral-900 dark:hover:text-neutral-100"
+                      aria-haspopup="dialog"
+                    >
+                      <MessageSquare className="h-4 w-4" aria-hidden="true" />
+                      Send feedback
                     </a>
                   </li>
                 </ul>

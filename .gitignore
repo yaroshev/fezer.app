@@ -37,3 +37,7 @@ build
 
 # Vite writes these transient files during SSR builds
 vite.config.ts.timestamp-*
+
+# Marketing working files -- kept local, not published to the public repo
+PROMO-POSTS.md
+promo/

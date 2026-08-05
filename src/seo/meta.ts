@@ -1,6 +1,8 @@
 import { FEATURE_PAGES } from '../content/features';
 import { COMPARISON_PAGES } from '../content/comparisons';
-import { APP_STORE_URL, SITE_URL, SCREENSHOTS } from './constants';
+import { GUIDES } from '../content/guides';
+import { FAQ_ITEMS } from '../content/faq';
+import { APP_STORE_URL, INTRO_VIDEO, SITE_URL, SCREENSHOTS } from './constants';
 
 export type RouteMeta = {
   path: string;
@@ -77,6 +79,20 @@ const SOFTWARE_APPLICATION = {
     'Plan vs. reality analytics',
   ],
   author: { '@id': `${SITE_URL}/#organization` },
+  publisher: { '@id': `${SITE_URL}/#organization` },
+};
+
+/** The "Introducing Fezer App" launch video, embedded on / and /press. */
+const INTRO_VIDEO_JSONLD = {
+  '@type': 'VideoObject',
+  '@id': `${SITE_URL}/#introvideo`,
+  name: INTRO_VIDEO.title,
+  description: INTRO_VIDEO.description,
+  thumbnailUrl: [`${SITE_URL}${INTRO_VIDEO.cover}`, `https://i.ytimg.com/vi/${INTRO_VIDEO.id}/hqdefault.jpg`],
+  uploadDate: INTRO_VIDEO.uploadDate,
+  duration: INTRO_VIDEO.duration,
+  contentUrl: INTRO_VIDEO.watchUrl,
+  embedUrl: `${INTRO_VIDEO.embedUrl}`,
   publisher: { '@id': `${SITE_URL}/#organization` },
 };
 
@@ -164,7 +180,7 @@ export const ROUTES_META: RouteMeta[] = [
     ogSlug: 'default',
     jsonLd: {
       '@context': 'https://schema.org',
-      '@graph': [ORGANIZATION, WEBSITE, SOFTWARE_APPLICATION],
+      '@graph': [ORGANIZATION, WEBSITE, SOFTWARE_APPLICATION, INTRO_VIDEO_JSONLD],
     },
   },
   ...FEATURE_PAGES.map((page) => ({
@@ -186,6 +202,166 @@ export const ROUTES_META: RouteMeta[] = [
     ogSlug: page.ogSlug,
     jsonLd: comparisonPageJsonLd(page.path, page.title, page.metaDescription, page.faq),
   })),
+  {
+    path: '/guides',
+    title: 'Guides to Time Blocking, Reviews & Goals -  Fezer',
+    description:
+      'Practical, tool-agnostic guides to time blocking, honest time estimation, ten-minute weekly reviews and turning goals into a schedule you actually follow.',
+    robots: 'index, follow',
+    indexable: true,
+    ogSlug: 'guides',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@graph': [
+        ORGANIZATION,
+        WEBSITE,
+        {
+          '@type': 'CollectionPage',
+          '@id': `${SITE_URL}/guides`,
+          url: `${SITE_URL}/guides`,
+          name: 'Guides to Time Blocking, Reviews & Goals -  Fezer',
+          isPartOf: { '@id': `${SITE_URL}/#website` },
+          mainEntity: {
+            '@type': 'ItemList',
+            itemListElement: GUIDES.map((guide, i) => ({
+              '@type': 'ListItem',
+              position: i + 1,
+              name: guide.h1,
+              url: `${SITE_URL}${guide.path}`,
+            })),
+          },
+        },
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Fezer', item: `${SITE_URL}/` },
+            { '@type': 'ListItem', position: 2, name: 'Guides', item: `${SITE_URL}/guides` },
+          ],
+        },
+      ],
+    },
+  },
+  ...GUIDES.map((guide) => ({
+    path: guide.path,
+    title: guide.title,
+    description: guide.metaDescription,
+    robots: 'index, follow',
+    indexable: true,
+    ogSlug: guide.ogSlug,
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@graph': [
+        ORGANIZATION,
+        WEBSITE,
+        {
+          '@type': 'Article',
+          '@id': `${SITE_URL}${guide.path}`,
+          headline: guide.h1,
+          description: guide.metaDescription,
+          url: `${SITE_URL}${guide.path}`,
+          image: `${SITE_URL}/og/${guide.ogSlug}.png`,
+          datePublished: guide.datePublished,
+          dateModified: guide.datePublished,
+          author: { '@id': `${SITE_URL}/#organization` },
+          publisher: { '@id': `${SITE_URL}/#organization` },
+          isPartOf: { '@id': `${SITE_URL}/#website` },
+          mainEntityOfPage: `${SITE_URL}${guide.path}`,
+        },
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Fezer', item: `${SITE_URL}/` },
+            { '@type': 'ListItem', position: 2, name: 'Guides', item: `${SITE_URL}/guides` },
+            { '@type': 'ListItem', position: 3, name: guide.h1, item: `${SITE_URL}${guide.path}` },
+          ],
+        },
+      ],
+    },
+  })),
+  {
+    path: '/faq',
+    title: 'Frequently Asked Questions -  Fezer',
+    description:
+      'Answers to the most common questions about Fezer: what it costs (nothing), where your data lives (your device), backups, sync, calendar import, Android and more.',
+    robots: 'index, follow',
+    indexable: true,
+    ogSlug: 'faq',
+    // The FAQPage node mirrors the visible copy on /faq -- keep src/content/faq.ts
+    // as the single source of truth for both.
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@graph': [
+        ORGANIZATION,
+        WEBSITE,
+        {
+          '@type': 'WebPage',
+          '@id': `${SITE_URL}/faq`,
+          url: `${SITE_URL}/faq`,
+          name: 'Frequently Asked Questions -  Fezer',
+          isPartOf: { '@id': `${SITE_URL}/#website` },
+          about: { '@id': `${SITE_URL}/#app` },
+        },
+        {
+          '@type': 'FAQPage',
+          '@id': `${SITE_URL}/faq#faq`,
+          mainEntity: FAQ_ITEMS.map((item) => ({
+            '@type': 'Question',
+            name: item.q,
+            acceptedAnswer: { '@type': 'Answer', text: item.a },
+          })),
+        },
+      ],
+    },
+  },
+  {
+    path: '/press',
+    title: 'Press Kit -  Fezer',
+    description:
+      'The Fezer press kit: fact sheet, boilerplate copy, story angles, downloadable icon and screenshots, and the Introducing Fezer launch video. Free to use in coverage.',
+    robots: 'index, follow',
+    indexable: true,
+    ogSlug: 'press',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@graph': [
+        ORGANIZATION,
+        WEBSITE,
+        {
+          '@type': 'WebPage',
+          '@id': `${SITE_URL}/press`,
+          url: `${SITE_URL}/press`,
+          name: 'Press Kit -  Fezer',
+          isPartOf: { '@id': `${SITE_URL}/#website` },
+          about: { '@id': `${SITE_URL}/#app` },
+        },
+        INTRO_VIDEO_JSONLD,
+      ],
+    },
+  },
+  {
+    path: '/whats-new',
+    title: 'What’s New -  Fezer',
+    description:
+      'App releases and notable website additions for Fezer, newest first -  only what has actually shipped, no roadmap promises.',
+    robots: 'index, follow',
+    indexable: true,
+    ogSlug: 'whats-new',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@graph': [
+        ORGANIZATION,
+        WEBSITE,
+        {
+          '@type': 'WebPage',
+          '@id': `${SITE_URL}/whats-new`,
+          url: `${SITE_URL}/whats-new`,
+          name: 'What’s New -  Fezer',
+          isPartOf: { '@id': `${SITE_URL}/#website` },
+          about: { '@id': `${SITE_URL}/#app` },
+        },
+      ],
+    },
+  },
   {
     path: '/privacypolicy',
     title: 'Privacy Policy -  Fezer',
