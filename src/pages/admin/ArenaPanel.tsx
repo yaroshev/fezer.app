@@ -1,3 +1,4 @@
+import ArenaQueue from './ArenaQueue';
 import React from 'react';
 import {
   Eye,
@@ -528,6 +529,7 @@ export default function ArenaPanel({
           </div>
         ))}
       </div>
+      <ArenaQueue api={api} />
     </>
   );
 }
