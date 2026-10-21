@@ -1,0 +1,27 @@
+name: Arena branch checks
+on:
+  pull_request:
+    paths:
+      - 'server/**'
+      - 'src/**'
+      - 'netlify/**'
+      - 'package*.json'
+      - '.github/workflows/arena-checks.yml'
+  push:
+    branches: [feat/arena-autonomous-league]
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: node --check server/arenaLeague.mjs
+      - run: node --check server/router.mjs
+      - run: node --check netlify/functions/arena-cycle.mjs
+      - run: npx tsc --noEmit -p tsconfig.app.json
+      - run: npm run build
