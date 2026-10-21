@@ -3,6 +3,7 @@ import { AlertCircle, Check, Loader2, Share2, Swords, Trophy } from 'lucide-reac
 import Nav from '../components/Nav';
 import SiteFooter from '../components/SiteFooter';
 import ArenaBar from '../components/ArenaBar';
+import ArenaSubmission from '../components/ArenaSubmission';
 import { CountdownTiles } from '../components/ArenaCountdown';
 import AppStoreButton from '../components/AppStoreButton';
 import BetaAccessButton from '../components/BetaAccessButton';
@@ -472,6 +473,8 @@ export default function FeatureArena() {
             )}
           </section>
         )}
+
+        <ArenaSubmission />
 
         {(live.length > 0 || closed.length > 0) && (
           <ul className="mt-12 space-y-1.5 border-t border-neutral-200 pt-6 text-xs leading-relaxed text-neutral-500 dark:border-neutral-800">
