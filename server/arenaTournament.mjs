@@ -156,7 +156,7 @@ export async function runTournamentCycle() {
   return { ...results, ...scheduled, changed:scheduled.changed || results.resolved>0 || results.runoffs>0 || results.blocked>0 };
 }
 
-export async function publicTournaments() {
+export async function publicTournaments(voterKey = null) {
   await ensureTournamentSchema();
   const {rows}=await execute('SELECT id,name,status,current_round,champion_id,created_at FROM arena.tournaments ORDER BY created_at DESC LIMIT 8');
   const tours=[];
@@ -166,7 +166,7 @@ export async function publicTournaments() {
     const hydrated=await Promise.all(matches.rows.map(async m=>({
       id:m.id,round:Number(m.round_number),slot:Number(m.slot),state:m.state,runoffs:Number(m.runoff_count),
       aIdeaId:m.a_idea_id,bIdeaId:m.b_idea_id,winnerIdeaId:m.winner_idea_id,
-      battle:await getBattle(String(m.battle_id))
+      battle:await getBattle(String(m.battle_id),voterKey)
     })));
     tours.push({
       id:t.id,name:t.name,status:t.status,currentRound:Number(t.current_round),
