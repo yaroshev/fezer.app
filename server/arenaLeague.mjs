@@ -177,7 +177,7 @@ function briefFor(battle,side) {
 
 async function recordOutcomes() {
   const r=await execute({
-    sql:"SELECT b.id FROM arena.battles b LEFT JOIN arena.outcomes o ON o.battle_id=b.id WHERE b.published=true AND b.closes_at<=? AND o.battle_id IS NULL ORDER BY b.closes_at LIMIT 10",
+    sql:"SELECT b.id FROM arena.battles b LEFT JOIN arena.outcomes o ON o.battle_id=b.id WHERE b.published=true AND b.closes_at<=? AND o.battle_id IS NULL AND (NOT EXISTS (SELECT 1 FROM arena.tournament_matches tm WHERE tm.battle_id=b.id) OR EXISTS (SELECT 1 FROM arena.tournament_matches tm WHERE tm.battle_id=b.id AND tm.round_number=2)) ORDER BY b.closes_at LIMIT 10",
     args:[nowIso()]
   });
   let processed=0;
@@ -259,6 +259,7 @@ export async function leagueStatus() {
 
 export async function runLeagueCycle() {
   await ensureLeagueSchema();
+  const tournament=await runTournamentCycle();
   const resolved=await recordOutcomes();
   const issued=await issueWinners();
   let seeded=0,moderation={reviewed:0};
@@ -266,7 +267,6 @@ export async function runLeagueCycle() {
     seeded=await seedIdeas();
     moderation=await moderate();
   } catch(error) { console.warn('[arena] AI services unavailable',error.message); }
-  const tournament=await runTournamentCycle();
   if(resolved||tournament.changed) await triggerRebuild();
   return {ok:true,resolved,issued,seeded,moderation,tournament};
 }
