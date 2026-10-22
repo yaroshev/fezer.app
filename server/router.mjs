@@ -1,7 +1,7 @@
 // One dispatcher, two hosts: the Vite dev server mounts it as middleware and the
 // Netlify function forwards to it, so localhost and production run identical
 // request handling.
-import { submitIdea, listIdeas, reviewIdea, leagueStatus, runLeagueCycle, publicTournaments } from './arenaLeague.mjs';
+import { ensureLeagueSchema, submitIdea, listIdeas, reviewIdea, leagueStatus, runLeagueCycle, publicTournaments } from './arenaLeague.mjs';
 import { claimCode, openRedeemLink, stats } from './claims.mjs';
 import { claimsToCsv, listClaims, markActivated, resendClaim, summary } from './admin.mjs';
 import {
@@ -135,7 +135,10 @@ async function handleRedirect(request, token) {
 
 async function handleArena(request, path) {
   if (path === '/api/arena/tournaments' && request.method === 'GET') {
-    return json({ok:true,tournaments:await publicTournaments()},{headers:{'cache-control':'no-store'}});
+    // Tournament tables reference arena.ideas. On a fresh database the public
+    // page may arrive before the scheduled league cycle has initialized it.
+    await ensureLeagueSchema();
+    return json({ok:true,tournaments:await publicTournaments(voterKey(request))},{headers:{'cache-control':'no-store'}});
   }
   if (path === '/api/arena/ideas' && request.method === 'GET') {
     return json({ ok:true, ideas:await listIdeas(false) });
