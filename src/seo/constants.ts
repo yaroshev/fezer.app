@@ -6,7 +6,7 @@ export const APP_STORE_ID = '6790143164';
  * and not the build sitting in review. It feeds `softwareVersion` in structured
  * data, so it has to describe what a visitor can actually download today.
  */
-export const APP_VERSION = '1.0.2';
+export const APP_VERSION = '3.0.7';
 
 /**
  * Whether Fezer Plus can actually be bought on each store.
