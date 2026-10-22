@@ -2,6 +2,7 @@
 import { execute, withTransaction } from './db.mjs';
 import { ensureArenaSchema, getBattle } from './arena.mjs';
 import { newId, nowIso } from './util.mjs';
+import { runTournamentCycle, publicTournaments } from './arenaTournament.mjs';
 
 const tidy = (v,n) => String(v ?? '').trim().replace(/\s+/g,' ').slice(0,n);
 const fingerprint = (v) => tidy(v,80).toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
@@ -265,7 +266,9 @@ export async function runLeagueCycle() {
     seeded=await seedIdeas();
     moderation=await moderate();
   } catch(error) { console.warn('[arena] AI services unavailable',error.message); }
-  const matchup=await matchmake();
-  if(resolved||matchup.created) await triggerRebuild();
-  return {ok:true,resolved,issued,seeded,moderation,matchup};
+  const tournament=await runTournamentCycle();
+  if(resolved||tournament.changed) await triggerRebuild();
+  return {ok:true,resolved,issued,seeded,moderation,tournament};
 }
+
+export { publicTournaments };
