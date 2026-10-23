@@ -1,6 +1,7 @@
 // One dispatcher, two hosts: the Vite dev server mounts it as middleware and the
 // Netlify function forwards to it, so localhost and production run identical
 // request handling.
+import { ensureLeagueSchema, submitIdea, listIdeas, reviewIdea, leagueStatus, runLeagueCycle, publicTournaments } from './arenaLeague.mjs';
 import { claimCode, openRedeemLink, stats } from './claims.mjs';
 import { claimsToCsv, listClaims, markActivated, resendClaim, summary } from './admin.mjs';
 import {
@@ -133,6 +134,27 @@ async function handleRedirect(request, token) {
 }
 
 async function handleArena(request, path) {
+  if (path === '/api/arena/tournaments' && request.method === 'GET') {
+    // Tournament tables reference arena.ideas. On a fresh database the public
+    // page may arrive before the scheduled league cycle has initialized it.
+    await ensureLeagueSchema();
+    return json({ok:true,tournaments:await publicTournaments(voterKey(request))},{headers:{'cache-control':'no-store'}});
+  }
+  if (path === '/api/arena/ideas' && request.method === 'GET') {
+    return json({ ok:true, ideas:await listIdeas(false) });
+  }
+  if (path === '/api/arena/ideas' && request.method === 'POST') {
+    const raw = await request.text();
+    if (raw.length > 5000) return json({ok:false,error:'too_large'},{status:413});
+    let body; try { body = JSON.parse(raw); } catch { return json({ok:false,error:'invalid_body'},{status:400}); }
+    if (!body || typeof body !== 'object' || Array.isArray(body)) return json({ok:false,error:'invalid_body'},{status:400});
+    if (body.company) return json({ok:true,status:'pending'});
+    const ipHash = hashIp(clientIp(request));
+    const limit = await rateLimit('arena_submit',ipHash,Number(process.env.ARENA_SUBMISSIONS_PER_IP_HOUR || 5));
+    if(!limit.ok) return json({ok:false,error:'rate_limited'},{status:429});
+    const result=await submitIdea(body,ipHash);
+    return json(result,{status:result.ok?202:400});
+  }
   if (path === '/api/arena/battles' && request.method === 'GET') {
     const { live, closed } = await publicBattles(voterKey(request));
     return json({ ok: true, live, closed });
@@ -208,6 +230,17 @@ async function handleAdmin(request, url, segments) {
 
   const section = segments[0];
 
+  if (section === 'league') {
+    if (request.method === 'GET') return json({ok:true,ideas:await listIdeas(true),...(await leagueStatus())});
+    if (request.method === 'POST' && segments[1] === 'cycle') return json(await runLeagueCycle());
+    if (request.method === 'POST' && segments[1] === 'review') {
+      const body=await readJson(request);
+      if (!body || typeof body.id !== 'string') return json({ok:false,error:'invalid_body'},{status:400});
+      const result=await reviewIdea(body.id,body.status,body.reason);
+      return json(result,{status:result.ok?200:400});
+    }
+    return json({ok:false,error:'not_found'},{status:404});
+  }
   if (section === 'arena') {
     return await handleAdminArena(request, segments);
   }
