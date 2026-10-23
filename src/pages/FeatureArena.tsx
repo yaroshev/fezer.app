@@ -3,7 +3,7 @@ import Nav from '../components/Nav';
 import SiteFooter from '../components/SiteFooter';
 import ArenaSubmission from '../components/ArenaSubmission';
 import { useArenaVote } from '../components/arenaStore';
-import { type ArenaBattle, type ArenaSide, formatDeadline } from '../content/arena';
+import { type ArenaBattle, type ArenaSide, formatDeadline, voterToken } from '../content/arena';
 type Entry={id:string;seed:number;title:string};
 type Match={id:string;round:number;slot:number;state:string;runoffs:number;aIdeaId:string;bIdeaId:string;winnerIdeaId:string|null;battle:ArenaBattle|null};
 type Tournament={id:string;name:string;status:string;championIdeaId:string|null;entries:Entry[];matches:Match[]};
@@ -15,7 +15,7 @@ export default function FeatureArena(){
  const {submit,busy,error:voteError}=useArenaVote('arena-page');
  React.useEffect(()=>{
   let active=true;
-  fetch('/api/arena/tournaments',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('unavailable');return r.json()})
+  fetch('/api/arena/tournaments',{cache:'no-store',headers:{'x-fezer-voter':voterToken()}}).then(r=>{if(!r.ok)throw new Error('unavailable');return r.json()})
    .then(data=>{if(active)setTournaments(data.tournaments||[])})
    .catch(()=>{if(active)setError('Tournament data is temporarily unavailable.')})
    .finally(()=>{if(active)setLoaded(true)});
