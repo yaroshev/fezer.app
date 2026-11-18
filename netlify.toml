@@ -39,3 +39,11 @@
   from = "/promo-admin"
   to = "/admin"
   status = 301
+
+# iOS reads this to learn which links open Fezer (fezer.app/scan from a
+# Fezer QR code). Apple wants JSON; Netlify serves an extensionless file as
+# plain text otherwise.
+[[headers]]
+  for = "/.well-known/apple-app-site-association"
+  [headers.values]
+    Content-Type = "application/json"

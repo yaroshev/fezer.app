@@ -565,6 +565,15 @@ export const ROUTES_META: RouteMeta[] = [
     indexable: true,
   },
   {
+    // Where every Fezer QR code points. Fezer opens these itself when it is
+    // installed; this page is only for a phone without it.
+    path: '/scan',
+    title: 'Fezer Item Label -  Fezer',
+    description: 'This QR code is a Fezer inventory label. Install Fezer to open the item it belongs to.',
+    robots: 'noindex, nofollow',
+    indexable: false,
+  },
+  {
     path: '/delete-account',
     title: 'Delete Your Data -  Fezer',
     description:

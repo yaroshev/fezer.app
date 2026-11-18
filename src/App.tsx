@@ -11,6 +11,7 @@ import WhatsNew from './pages/WhatsNew';
 import AboutPage from './pages/AboutPage';
 import StartPage from './pages/StartPage';
 import PromoPage from './pages/PromoPage';
+import ScanPage from './pages/ScanPage';
 import FeatureArena from './pages/FeatureArena';
 import AdminPage from './pages/AdminPage';
 import PromoAdmin from './pages/PromoAdmin';
@@ -21,12 +22,13 @@ import { COMPARISON_PAGES } from './content/comparisons';
 import { GUIDES } from './content/guides';
 
 /** These pages carry their own call to action; a toast on top would be noise. */
-const TOAST_EXCLUDED = ['/plus-free', '/feature-arena', '/admin', '/promo-admin'];
+const TOAST_EXCLUDED = ['/plus-free', '/feature-arena', '/admin', '/promo-admin', '/scan'];
 
 function route(normalized: string) {
   if (normalized === '/') return <Home />;
   if (normalized === '/start') return <StartPage />;
   if (normalized === '/plus-free') return <PromoPage />;
+  if (normalized === '/scan') return <ScanPage />;
   if (normalized === '/feature-arena') return <FeatureArena />;
   if (normalized === '/admin') return <AdminPage />;
   if (normalized === '/promo-admin') return <PromoAdmin />;
